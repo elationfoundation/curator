@@ -23,7 +23,7 @@ Vagrant.configure(2) do |config|
              "CURATOR_FLASK_HAMC_KEY" => "v13FQxfdAxhnlJZet2YICU",
              "CURATOR_REPORT_PATH" => "/tmp/term_reports",
              "CURATOR_KEYWORD_PATH" => "/var/opt/rss_keyword/keywords/"}
-    s.path = "scripts/vagrant-bootstrap"
+    s.path = "scripts/vagrant-bootstrap.sh"
   end
 
   config.vm.network :forwarded_port, guest: 80, host: 4576

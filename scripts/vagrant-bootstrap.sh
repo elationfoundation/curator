@@ -19,7 +19,7 @@ set -euo pipefail
 set -x
 
 # Include
-source install_helpers
+source /vagrant/scripts/install_helpers
 
 main() {
     base_setup
