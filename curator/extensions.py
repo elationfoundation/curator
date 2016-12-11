@@ -17,7 +17,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-limiter = Limiter(
-    key_func=get_remote_address,
-    global_limits=["100 per day", "50 per hour"]))
-#    exempt_when=lambda: current_user.is_authenticated))
+# limiter = Limiter(
+#     key_func=get_remote_address,
+#     global_limits=["100 per day", "50 per hour"])
+# #    exempt_when=lambda: current_user.is_authenticated))

@@ -16,7 +16,7 @@
 
 from flask import Flask, render_template
 from curator import public#, user
-from curator.extensions import db, limiter
+from curator.extensions import db#, limiter
 from curator.settings import ProdConfig
 
 def create_app(config_object=ProdConfig):
@@ -33,7 +33,7 @@ def create_app(config_object=ProdConfig):
 def register_extensions(app):
     """Register Flask extensions."""
     db.init_app(app)
-    limiter.init_app(app)
+    #limiter.init_app(app)
     return None
 
 def register_blueprints(app):
