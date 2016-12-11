@@ -14,10 +14,11 @@
 # FITNESS FOR A PARTICULAR PURPOSE. See the included LICENSE file for details.
 
 
-from flask import Flask, render_template
-from curator import public#, user
-from curator.extensions import db#, limiter
+from flask import Flask
+from curator.public.views import blueprint as view_blueprint
+from curator.extensions import db  #, limiter
 from curator.settings import ProdConfig, get_database_adddress
+
 
 def create_app(config_object=ProdConfig):
     """An application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.
@@ -32,14 +33,16 @@ def create_app(config_object=ProdConfig):
     register_blueprints(app)
     return app
 
+
 def register_extensions(app):
     """Register Flask extensions."""
     db.init_app(app)
     #limiter.init_app(app)
     return None
 
+
 def register_blueprints(app):
     """Register Flask blueprints."""
-    app.register_blueprint(public.views.blueprint)
+    app.register_blueprint(view_blueprint)
     #app.register_blueprint(user.views.blueprint)
     return None
