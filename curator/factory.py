@@ -15,7 +15,7 @@
 
 
 from flask import Flask, render_template
-from curator import public, user
+from curator import public#, user
 from curator.extensions import db, limiter
 from curator.settings import ProdConfig
 
