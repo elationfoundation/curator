@@ -13,8 +13,10 @@
 # ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
 # FITNESS FOR A PARTICULAR PURPOSE. See the included LICENSE file for details.
 
+import uuid
 from curator.extensions import db
 from curator.models.helpers import GUID
+
 
 class Language(db.Model):
     id = db.Column(db.Integer, primary_key=True)
