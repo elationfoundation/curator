@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of curator
-# Copyright © 2016 seamus tuohy, <s2e+code@seamustuohy.com>
+# Copyright © 2016 seamus tuohy, <code@seamustuohy.com>
 #
 # This program is free software: you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -13,15 +13,16 @@
 # ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
 # FITNESS FOR A PARTICULAR PURPOSE. See the included LICENSE file for details.
 
-from flask.ext.sqlalchemy import SQLAlchemy
+from curator.extensions import db
+from curator.models.helpers import GUID
 
-# Using this to allow for multiple contexts
-#
-# As Such, it’s a good idea to keep the SQLAlchemy object
-# instance in separate file, to avoid circular imports
-db = SQLAlchemy()
+class Language(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(3), default='eng')
 
-# limiter = Limiter(
-#     key_func=get_remote_address,
-#     global_limits=["100 per day", "50 per hour"])
-# #    exempt_when=lambda: current_user.is_authenticated))
+class Tag(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(50))
+
+class UUID(db.Model):
+    id = db.Column(GUID(), default=uuid.uuid4, nullable=False, unique=True, primary_key=True)
