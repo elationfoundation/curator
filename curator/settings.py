@@ -32,9 +32,9 @@ class Config(object):
     # for bcrypt the salt must be 22 characters long,
     # and drawn from the regexp range [./0-9A-Za-z]
     SECURITY_PASSWORD_SALT = os.environ.get('CURATOR_FLASK_HAMC_KEY')
-    SQLALCHEMY_DATABASE_URI = get_database_adddress()
+    SQLALCHEMY_DATABASE_URI = self.get_database_adddress()
 
-    def get_database_adddress():
+    def get_database_adddress(self):
         db_config = {"host": os.environ.get("CURATOR_DB_HOST"),
                      "user": os.environ.get("CURATOR_DB_USER"),
                      "password": os.environ.get("CURATOR_DB_PASS"),
