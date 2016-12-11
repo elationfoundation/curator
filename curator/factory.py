@@ -17,7 +17,7 @@
 from flask import Flask, render_template
 from curator import public#, user
 from curator.extensions import db#, limiter
-from curator.settings import ProdConfig
+from curator.settings import ProdConfig, get_database_adddress
 
 def create_app(config_object=ProdConfig):
     """An application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.
@@ -26,6 +26,8 @@ def create_app(config_object=ProdConfig):
     """
     app = Flask(__name__)
     app.config.from_object(config_object)
+    if app.config['SQLALCHEMY_DATABASE_URI'] is None:
+        app.config['SQLALCHEMY_DATABASE_URI'] = get_database_adddress()
     register_extensions(app)
     register_blueprints(app)
     return app
