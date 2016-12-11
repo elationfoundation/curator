@@ -35,14 +35,14 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = get_database_adddress()
 
     def get_database_adddress():
-    db_config = {"host": os.environ.get("CURATOR_DB_HOST"),
-                 "user": os.environ.get("CURATOR_DB_USER"),
-                 "password": os.environ.get("CURATOR_DB_PASS"),
-                 "port": os.environ.get("CURATOR_DB_PORT"),
-                 "name": os.environ.get("CURATOR_DB_NAME")}
+        db_config = {"host": os.environ.get("CURATOR_DB_HOST"),
+                     "user": os.environ.get("CURATOR_DB_USER"),
+                     "password": os.environ.get("CURATOR_DB_PASS"),
+                     "port": os.environ.get("CURATOR_DB_PORT"),
+                     "name": os.environ.get("CURATOR_DB_NAME")}
 
-    address = "postgresql://{user}:{password}/{host}:{port}/{name}".format(db_config)
-    return address
+        address = "postgresql://{user}:{password}/{host}:{port}/{name}".format(db_config)
+        return address
 
 
 class ProdConfig(Config):
