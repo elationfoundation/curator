@@ -61,5 +61,5 @@ def get_database_adddress():
                  "port": os.environ.get("CURATOR_DB_PORT"),
                  "name": os.environ.get("CURATOR_DB_NAME")}
 
-    address = "postgresql://{user}:{password}/{host}:{port}/{name}".format(db_config)
+    address = "postgresql://{user}:{password}/{host}:{port}/{name}".format(db_config**)
     return address
